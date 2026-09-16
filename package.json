@@ -1,0 +1,27 @@
+{
+  "name": "gantt-benchmarks-harness",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "setup": "node bench/setup.mjs",
+    "check": "node bench/coherence.mjs",
+    "agree": "node bench/agreement.mjs",
+    "bench": "node bench/run.mjs",
+    "bench:quick": "node bench/run.mjs --size 1000,5000,10000 --runs 2",
+    "bench:smoke": "node bench/run.mjs --machine smoke --lib dhtmlx --size 1000 --mode off --runs 1",
+    "prune": "node bench/prune.mjs",
+    "round:new": "node bench/round.mjs",
+    "tables": "node bench/tables.mjs",
+    "summary": "node bench/summary.mjs",
+    "charts": "node bench/charts.mjs",
+    "report": "node bench/report.mjs",
+    "readme": "node bench/readme.mjs",
+    "html": "node bench/html.mjs",
+    "publish:artefacts": "node bench/round.mjs --if-missing && npm run tables && npm run summary && npm run charts && npm run report && npm run readme && npm run html"
+  },
+  "devDependencies": {
+    "playwright": "1.62.0"
+  }
+}

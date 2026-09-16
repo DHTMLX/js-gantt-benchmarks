@@ -1,0 +1,26 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  DOCKER_IMAGE: gantt-benchmarks
+
+tasks:
+  default:
+    desc: List available tasks
+    cmds:
+      - task --list
+    silent: true
+
+  docker:build:
+    desc: Build the Xvfb benchmark image
+    cmds:
+      - docker build -t {{.DOCKER_IMAGE}} .
+
+  docker:dhtmlx:
+    desc: Run the benchmark for DHTMLX only
+    cmds:
+      - >-
+        docker run --rm --init --ipc=host
+        --mount type=bind,source="{{.TASKFILE_DIR}}/raw-results",target=/benchmark/raw-results
+        {{.DOCKER_IMAGE}} npm run bench -- --machine docker-xvfb --lib dhtmlx

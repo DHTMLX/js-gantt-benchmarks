@@ -1,0 +1,9 @@
+{
+  "apps": [
+    "dhtmlx",
+    "bryntum",
+    "devextreme",
+    "kendo",
+    "syncfusion"
+  ]
+}

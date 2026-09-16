@@ -1,0 +1,4 @@
+# The harness runs on Windows, macOS and Linux reference machines, and the generators
+# write their output with LF. Normalising on the way into git keeps a regenerated table
+# or report a content diff rather than a whole-file one.
+* text=auto eol=lf

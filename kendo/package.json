@@ -1,0 +1,19 @@
+{
+  "name": "kendo-check",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "8.1.5"
+  },
+  "dependencies": {
+    "@progress/kendo-theme-default": "14.5.0",
+    "@progress/kendo-ui": "2026.3.811",
+    "jquery": "4.0.0"
+  }
+}

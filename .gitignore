@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.claude/
+
+.DS_Store
+
+# `npm run bench:smoke` verifies the harness rather than measuring it, so its store is
+# disposable — see SMOKE_MACHINE_ID in bench/config.mjs.
+raw-results/smoke/
+
+# One file holding the round's md and its charts inlined; `npm run html` rebuilds it from
+# reports/<version>/, and a published round ships it as a release asset on its tag.
+reports/*/report-v*.html

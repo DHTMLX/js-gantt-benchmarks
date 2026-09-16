@@ -1,0 +1,19 @@
+{
+  "name": "devextreme-check",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "8.1.5"
+  },
+  "dependencies": {
+    "devexpress-gantt": "4.1.70",
+    "devextreme": "26.1.4",
+    "jquery": "4.0.0"
+  }
+}

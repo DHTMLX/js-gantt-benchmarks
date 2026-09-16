@@ -1,0 +1,7 @@
+.git
+.agents
+.claude
+.codex
+**/node_modules
+**/dist
+raw-results

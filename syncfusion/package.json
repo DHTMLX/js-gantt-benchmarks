@@ -1,0 +1,18 @@
+{
+  "name": "syncfusion-check",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@syncfusion/ej2": "^34.2.8",
+    "@syncfusion/ej2-gantt": "^34.2.8"
+  },
+  "devDependencies": {
+    "vite": "8.1.5"
+  }
+}

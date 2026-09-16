@@ -1,0 +1,76 @@
+[
+  {
+    "id": "dhtmlx",
+    "name": "DHTMLX Gantt",
+    "dir": "dhtmlx",
+    "port": 5001,
+    "package": "@dhx/trial-gantt",
+    "docs": "https://dhtmlx.com/docs/products/dhtmlxGantt/",
+    "delivery": "@dhx/trial-gantt from npm.dhtmlx.com (trial build)",
+    "supportsAutoScheduling": true,
+    "dom": {
+      "rows": [".gantt_row", ".gantt_task_row", ".gantt_task_line"],
+      "scrollers": [".gantt_ver_scroll"]
+    }
+  },
+  {
+    "id": "bryntum",
+    "name": "Bryntum Gantt",
+    "dir": "bryntum",
+    "port": 5002,
+    "package": "@bryntum/gantt",
+    "docs": "https://www.bryntum.com/products/gantt/",
+    "delivery": "@bryntum/gantt-trial from npm (trial build)",
+    "supportsAutoScheduling": true,
+    "dom": {
+      "rows": [".b-grid-row", ".b-gantt-task"],
+      "scrollers": [
+        ".b-grid-body-container",
+        ".b-virtual-scrollers",
+        ".b-grid-vertical-scroller"
+      ]
+    }
+  },
+  {
+    "id": "devextreme",
+    "name": "DevExtreme Gantt",
+    "dir": "devextreme",
+    "port": 5003,
+    "package": "devextreme",
+    "docs": "https://js.devexpress.com/jQuery/Documentation/Guide/UI_Components/Gantt/Overview/",
+    "delivery": "devextreme + devexpress-gantt from npm (evaluation build)",
+    "supportsAutoScheduling": true,
+    "dom": {
+      "rows": [".dx-treelist-rowsview .dx-data-row", ".dx-gantt-taskWrapper"],
+      "scrollers": [".dx-scrollable-container"]
+    }
+  },
+  {
+    "id": "kendo",
+    "name": "Kendo UI Gantt",
+    "dir": "kendo",
+    "port": 5004,
+    "package": "@progress/kendo-ui",
+    "docs": "https://www.telerik.com/kendo-jquery-ui/gantt",
+    "delivery": "@progress/kendo-ui from npm (trial build, no licence key)",
+    "supportsAutoScheduling": false,
+    "dom": {
+      "rows": [".k-gantt-treelist tbody .k-table-row", ".k-gantt-tasks .k-task"],
+      "scrollers": [".k-grid-content", ".k-treelist-content"]
+    }
+  },
+  {
+    "id": "syncfusion",
+    "name": "Syncfusion Gantt",
+    "dir": "syncfusion",
+    "port": 5005,
+    "package": "@syncfusion/ej2-gantt",
+    "docs": "https://ej2.syncfusion.com/documentation/gantt/overview",
+    "delivery": "@syncfusion/ej2-gantt from npm (trial build)",
+    "supportsAutoScheduling": true,
+    "dom": {
+      "rows": [".e-chart-row", ".e-gantt-child-taskbar"],
+      "scrollers": [".e-content", ".e-chart-scroll-container"]
+    }
+  }
+]

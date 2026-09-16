@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 510" width="800" height="510" role="img" aria-label="Moving a task, Flat chain dataset, auto-scheduling disabled">
+<style>
+  svg {
+    --ink-surface: #fcfcfb;
+    --ink-primary: #0b0b0b;
+    --ink-secondary: #52514e;
+    --ink-muted: #898781;
+    --ink-grid: #e1e0d9;
+    --ink-axis: #c3c2b7;
+    --series-1: #2a78d6;
+    --series-2: #eb6834;
+    --series-3: #1baf7a;
+    --series-4: #eda100;
+    --series-5: #e87ba4;
+  }
+  @media (prefers-color-scheme: dark) {
+    svg:where(:not([data-theme="light"])) {
+    --ink-surface: #1a1a19;
+    --ink-primary: #ffffff;
+    --ink-secondary: #c3c2b7;
+    --ink-muted: #898781;
+    --ink-grid: #2c2c2a;
+    --ink-axis: #383835;
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --series-3: #199e70;
+    --series-4: #c98500;
+    --series-5: #d55181;
+    }
+  }
+  svg[data-theme="dark"] {
+    --ink-surface: #1a1a19;
+    --ink-primary: #ffffff;
+    --ink-secondary: #c3c2b7;
+    --ink-muted: #898781;
+    --ink-grid: #2c2c2a;
+    --ink-axis: #383835;
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --series-3: #199e70;
+    --series-4: #c98500;
+    --series-5: #d55181;
+  }
+  .bg { fill: var(--ink-surface); }
+  .title { fill: var(--ink-primary); font: 600 15px system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .subtitle { fill: var(--ink-secondary); font: 400 12px system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .tick { fill: var(--ink-muted); font: 400 11px system-ui, -apple-system, "Segoe UI", sans-serif; font-variant-numeric: tabular-nums; }
+  .axis-title { fill: var(--ink-secondary); font: 400 12px system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .grid { stroke: var(--ink-grid); stroke-width: 1; }
+  .axis { stroke: var(--ink-axis); stroke-width: 1; }
+  .series { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+  .dot { stroke: var(--ink-surface); stroke-width: 2; }
+  .ceiling { stroke: var(--ink-muted); stroke-width: 1; stroke-dasharray: 5 4; }
+  .ceiling-label { fill: var(--ink-muted); font: 400 11px system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .legend { fill: var(--ink-secondary); font: 400 12px system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .key { stroke-width: 2; stroke-linecap: round; }
+</style>
+  <rect class="bg" width="800" height="510"/>
+  <text class="title" x="22" y="26">Moving a task — Flat chain, auto-scheduling off — lower is better</text>
+  <text class="subtitle" x="22" y="45">MacBook Air M1</text>
+  <line class="key" x1="78.0" x2="94.0" y1="68" y2="68" stroke="var(--series-1)"/>
+  <circle cx="86.0" cy="68" r="3.5" fill="var(--series-1)"/>
+  <text class="legend" x="101.0" y="72">DHTMLX</text>
+  <line class="key" x1="164.3" x2="180.3" y1="68" y2="68" stroke="var(--series-2)"/>
+  <circle cx="172.3" cy="68" r="3.5" fill="var(--series-2)"/>
+  <text class="legend" x="187.3" y="72">Bryntum</text>
+  <line class="key" x1="257.1" x2="273.1" y1="68" y2="68" stroke="var(--series-3)"/>
+  <circle cx="265.1" cy="68" r="3.5" fill="var(--series-3)"/>
+  <text class="legend" x="280.1" y="72">DevExtreme</text>
+  <line class="key" x1="369.6" x2="385.6" y1="68" y2="68" stroke="var(--series-4)"/>
+  <circle cx="377.6" cy="68" r="3.5" fill="var(--series-4)"/>
+  <text class="legend" x="392.6" y="72">Kendo UI</text>
+  <line class="key" x1="469.0" x2="485.0" y1="68" y2="68" stroke="var(--series-5)"/>
+  <circle cx="477.0" cy="68" r="3.5" fill="var(--series-5)"/>
+  <text class="legend" x="492.0" y="72">Syncfusion</text>
+  <line class="grid" x1="78" x2="748" y1="458.0" y2="458.0"/>
+  <text class="tick" x="69" y="462.0" text-anchor="end">10ms</text>
+  <text class="tick" x="757" y="462.0" text-anchor="start">10ms</text>
+  <line class="grid" x1="78" x2="748" y1="433.9" y2="433.9"/>
+  <text class="tick" x="69" y="437.9" text-anchor="end">20ms</text>
+  <text class="tick" x="757" y="437.9" text-anchor="start">20ms</text>
+  <line class="grid" x1="78" x2="748" y1="402.1" y2="402.1"/>
+  <text class="tick" x="69" y="406.1" text-anchor="end">50ms</text>
+  <text class="tick" x="757" y="406.1" text-anchor="start">50ms</text>
+  <line class="grid" x1="78" x2="748" y1="378.0" y2="378.0"/>
+  <text class="tick" x="69" y="382.0" text-anchor="end">100ms</text>
+  <text class="tick" x="757" y="382.0" text-anchor="start">100ms</text>
+  <line class="grid" x1="78" x2="748" y1="353.9" y2="353.9"/>
+  <text class="tick" x="69" y="357.9" text-anchor="end">200ms</text>
+  <text class="tick" x="757" y="357.9" text-anchor="start">200ms</text>
+  <line class="grid" x1="78" x2="748" y1="322.1" y2="322.1"/>
+  <text class="tick" x="69" y="326.1" text-anchor="end">500ms</text>
+  <text class="tick" x="757" y="326.1" text-anchor="start">500ms</text>
+  <line class="grid" x1="78" x2="748" y1="298.0" y2="298.0"/>
+  <text class="tick" x="69" y="302.0" text-anchor="end">1s</text>
+  <text class="tick" x="757" y="302.0" text-anchor="start">1s</text>
+  <line class="grid" x1="78" x2="748" y1="273.9" y2="273.9"/>
+  <text class="tick" x="69" y="277.9" text-anchor="end">2s</text>
+  <text class="tick" x="757" y="277.9" text-anchor="start">2s</text>
+  <line class="grid" x1="78" x2="748" y1="242.0" y2="242.0"/>
+  <text class="tick" x="69" y="246.0" text-anchor="end">5s</text>
+  <text class="tick" x="757" y="246.0" text-anchor="start">5s</text>
+  <line class="grid" x1="78" x2="748" y1="217.9" y2="217.9"/>
+  <text class="tick" x="69" y="221.9" text-anchor="end">10s</text>
+  <text class="tick" x="757" y="221.9" text-anchor="start">10s</text>
+  <line class="grid" x1="78" x2="748" y1="193.9" y2="193.9"/>
+  <text class="tick" x="69" y="197.9" text-anchor="end">20s</text>
+  <text class="tick" x="757" y="197.9" text-anchor="start">20s</text>
+  <line class="grid" x1="78" x2="748" y1="162.0" y2="162.0"/>
+  <text class="tick" x="69" y="166.0" text-anchor="end">50s</text>
+  <text class="tick" x="757" y="166.0" text-anchor="start">50s</text>
+  <line class="grid" x1="78" x2="748" y1="137.9" y2="137.9"/>
+  <text class="tick" x="69" y="141.9" text-anchor="end">100s</text>
+  <text class="tick" x="757" y="141.9" text-anchor="start">100s</text>
+  <line class="grid" x1="78" x2="748" y1="113.8" y2="113.8"/>
+  <text class="tick" x="69" y="117.8" text-anchor="end">200s</text>
+  <text class="tick" x="757" y="117.8" text-anchor="start">200s</text>
+  <line class="grid" x1="78" x2="748" y1="82.0" y2="82.0"/>
+  <text class="tick" x="69" y="86.0" text-anchor="end">500s</text>
+  <text class="tick" x="757" y="86.0" text-anchor="start">500s</text>
+  <line class="grid" x1="90.0" x2="90.0" y1="82" y2="458"/>
+  <line class="grid" x1="315.8" x2="315.8" y1="82" y2="458"/>
+  <line class="grid" x1="413.0" x2="413.0" y1="82" y2="458"/>
+  <line class="grid" x1="638.8" x2="638.8" y1="82" y2="458"/>
+  <line class="grid" x1="736.0" x2="736.0" y1="82" y2="458"/>
+  <line class="axis" x1="78" x2="748" y1="458" y2="458"/>
+  <line class="axis" x1="78" x2="78" y1="82" y2="458"/>
+  <text class="tick" x="90.0" y="478" text-anchor="middle">1000</text>
+  <text class="tick" x="315.8" y="478" text-anchor="middle">5000</text>
+  <text class="tick" x="413.0" y="478" text-anchor="middle">10k</text>
+  <text class="tick" x="638.8" y="478" text-anchor="middle">50k</text>
+  <text class="tick" x="736.0" y="478" text-anchor="middle">100k</text>
+  <text class="axis-title" x="413.0" y="496" text-anchor="middle">Number of tasks (log scale)</text>
+  <text class="axis-title" x="20" y="270.0" text-anchor="middle" transform="rotate(-90 20 270.0)">Time (log scale)</text>
+
+  <path class="series" stroke="var(--series-1)" d="M 90.0 443.9 L 315.8 419.8 L 413.0 409.0 L 638.8 360.6 L 736.0 338.0"/>
+  <circle class="dot" cx="90.0" cy="443.9" r="4" fill="var(--series-1)"/>
+  <circle class="dot" cx="315.8" cy="419.8" r="4" fill="var(--series-1)"/>
+  <circle class="dot" cx="413.0" cy="409.0" r="4" fill="var(--series-1)"/>
+  <circle class="dot" cx="638.8" cy="360.6" r="4" fill="var(--series-1)"/>
+  <circle class="dot" cx="736.0" cy="338.0" r="4" fill="var(--series-1)"/>
+  <path class="series" stroke="var(--series-2)" d="M 90.0 377.3 L 315.8 336.8 L 413.0 314.7 L 638.8 247.5 L 736.0 215.3"/>
+  <circle class="dot" cx="90.0" cy="377.3" r="4" fill="var(--series-2)"/>
+  <circle class="dot" cx="315.8" cy="336.8" r="4" fill="var(--series-2)"/>
+  <circle class="dot" cx="413.0" cy="314.7" r="4" fill="var(--series-2)"/>
+  <circle class="dot" cx="638.8" cy="247.5" r="4" fill="var(--series-2)"/>
+  <circle class="dot" cx="736.0" cy="215.3" r="4" fill="var(--series-2)"/>
+  <path class="series" stroke="var(--series-3)" d="M 90.0 367.0 L 315.8 281.5 L 413.0 231.7"/>
+  <circle class="dot" cx="90.0" cy="367.0" r="4" fill="var(--series-3)"/>
+  <circle class="dot" cx="315.8" cy="281.5" r="4" fill="var(--series-3)"/>
+  <circle class="dot" cx="413.0" cy="231.7" r="4" fill="var(--series-3)"/>
+  <path class="series" stroke="var(--series-4)" d="M 90.0 334.3 L 315.8 240.0 L 413.0 194.9"/>
+  <circle class="dot" cx="90.0" cy="334.3" r="4" fill="var(--series-4)"/>
+  <circle class="dot" cx="315.8" cy="240.0" r="4" fill="var(--series-4)"/>
+  <circle class="dot" cx="413.0" cy="194.9" r="4" fill="var(--series-4)"/>
+  <path class="series" stroke="var(--series-5)" d="M 90.0 382.0 L 315.8 341.0 L 413.0 265.4 L 638.8 163.9 L 736.0 110.4"/>
+  <circle class="dot" cx="90.0" cy="382.0" r="4" fill="var(--series-5)"/>
+  <circle class="dot" cx="315.8" cy="341.0" r="4" fill="var(--series-5)"/>
+  <circle class="dot" cx="413.0" cy="265.4" r="4" fill="var(--series-5)"/>
+  <circle class="dot" cx="638.8" cy="163.9" r="4" fill="var(--series-5)"/>
+  <circle class="dot" cx="736.0" cy="110.4" r="4" fill="var(--series-5)"/>
+</svg>
