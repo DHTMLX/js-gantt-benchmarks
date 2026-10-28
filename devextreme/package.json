@@ -12,8 +12,8 @@
     "vite": "8.1.5"
   },
   "dependencies": {
-    "devexpress-gantt": "4.1.70",
-    "devextreme": "26.1.4",
+    "devexpress-gantt": "4.1.71",
+    "devextreme": "26.1.6",
     "jquery": "4.0.0"
   }
 }

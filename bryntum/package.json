@@ -12,6 +12,6 @@
     "vite": "8.1.5"
   },
   "dependencies": {
-    "@bryntum/gantt": "npm:@bryntum/gantt-trial@^7.3.6"
+    "@bryntum/gantt": "npm:@bryntum/gantt-trial@7.3.8"
   }
 }
