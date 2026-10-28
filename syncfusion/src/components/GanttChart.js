@@ -60,7 +60,6 @@ export class GanttChart {
       enableVirtualization: true,
       enableTimelineVirtualization: true,
       enablePredecessorValidation: this.autoScheduling,
-      validateManualTasksOnLinking: true,
       taskMode: "Custom",
       splitterSettings: {
         columnIndex: 1,

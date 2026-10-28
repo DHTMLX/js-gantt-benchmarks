@@ -251,7 +251,6 @@ new Gantt({
   enableVirtualization: true,
   enableTimelineVirtualization: true,
   enablePredecessorValidation: <mode>,
-  validateManualTasksOnLinking: true,
   taskMode: "Custom",
   splitterSettings: { columnIndex: 1, position: "380px" },
   timelineSettings: {
@@ -398,7 +397,6 @@ additional non-default choices are:
 | Syncfusion | `enableVirtualization` | `false` | `true` | Enables row virtualization, matching the other components that provide it. |
 | Syncfusion | `enableTimelineVirtualization` | `false` | `true` | Enables timeline virtualization, matching the other components that provide it. |
 | Syncfusion | `timelineSettings.timelineUnitSize` | `33` | `72` | Brings its day columns close to DHTMLX's 70 px default; see asymmetry 8. |
-| Syncfusion | `validateManualTasksOnLinking` | `false` | `true` | Applies predecessor validation to manual tasks, including leaves in the auto-scheduling-off workload. |
 | Syncfusion | `taskMode` | `"Auto"` | `"Custom"` | Allows the shared per-task `manual` field to express both auto-scheduling modes. |
 | Syncfusion | `taskbarHeight` | derived from the row/theme | `22` | Keeps the task bars at the intended height inside the common 36 px rows; cosmetic. |
 
