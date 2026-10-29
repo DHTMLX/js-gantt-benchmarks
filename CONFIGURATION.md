@@ -251,7 +251,6 @@ new Gantt({
   enableVirtualization: true,
   enableTimelineVirtualization: true,
   enablePredecessorValidation: <mode>,
-  validateManualTasksOnLinking: true,
   taskMode: "Custom",
   splitterSettings: { columnIndex: 1, position: "380px" },
   timelineSettings: {
@@ -309,10 +308,10 @@ version changes after measurement starts.** Related theme and engine packages us
 | Library | Version | Package | Registry |
 |---|---|---|---|
 | DHTMLX Gantt | 10.0.3 | `@dhx/trial-gantt` | `npm.dhtmlx.com` |
-| Bryntum Gantt | 7.3.6 | `@bryntum/gantt-trial` | npm |
-| DevExtreme Gantt | 26.1.4 | `devextreme` + `devexpress-gantt` 4.1.70 | npm |
-| Kendo UI Gantt | 2026.3.811 | `@progress/kendo-ui` + `@progress/kendo-theme-default` 14.5.0 | npm |
-| Syncfusion Gantt | 34.2.8 | `@syncfusion/ej2-gantt` + `@syncfusion/ej2` (theme) | npm |
+| Bryntum Gantt | 7.3.8 | `@bryntum/gantt-trial` | npm |
+| DevExtreme Gantt | 26.1.6 | `devextreme` + `devexpress-gantt` 4.1.71 | npm |
+| Kendo UI Gantt | 2026.3.1015 | `@progress/kendo-ui` + `@progress/kendo-theme-default` 14.7.0 | npm |
+| Syncfusion Gantt | 35.1.41 | `@syncfusion/ej2-gantt` + `@syncfusion/ej2` 35.1.42 (theme) | npm |
 
 All components, themes and required jQuery (4.0.0) are exact install-time dependencies. No
 library build is vendored; `npm ci` with the committed lockfiles installs the measured code. The
@@ -398,7 +397,6 @@ additional non-default choices are:
 | Syncfusion | `enableVirtualization` | `false` | `true` | Enables row virtualization, matching the other components that provide it. |
 | Syncfusion | `enableTimelineVirtualization` | `false` | `true` | Enables timeline virtualization, matching the other components that provide it. |
 | Syncfusion | `timelineSettings.timelineUnitSize` | `33` | `72` | Brings its day columns close to DHTMLX's 70 px default; see asymmetry 8. |
-| Syncfusion | `validateManualTasksOnLinking` | `false` | `true` | Applies predecessor validation to manual tasks, including leaves in the auto-scheduling-off workload. |
 | Syncfusion | `taskMode` | `"Auto"` | `"Custom"` | Allows the shared per-task `manual` field to express both auto-scheduling modes. |
 | Syncfusion | `taskbarHeight` | derived from the row/theme | `22` | Keeps the task bars at the intended height inside the common 36 px rows; cosmetic. |
 

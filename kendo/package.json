@@ -12,8 +12,8 @@
     "vite": "8.1.5"
   },
   "dependencies": {
-    "@progress/kendo-theme-default": "14.5.0",
-    "@progress/kendo-ui": "2026.3.811",
+    "@progress/kendo-theme-default": "14.7.0",
+    "@progress/kendo-ui": "2026.3.1015",
     "jquery": "4.0.0"
   }
 }
