@@ -18,11 +18,12 @@ Before editing, read:
 - METHODOLOGY.md;
 - CONFIGURATION.md;
 - summary.json and the generated result tables;
-- the previous approved report, when available;
+- the previous approved report and its `raw-results/` evidence, when available;
 - the cross-machine agreement output, when available.
 
-Use the previous report only for structure and tone; verify every claim and figure against the
-current round.
+Use the previous report for structure and tone, and its evidence only as the baseline described
+in [Changes since the previous round](#changes-since-the-previous-round); verify every claim and
+figure against the current round.
 
 ## Goal
 
@@ -182,6 +183,37 @@ When more than one machine was measured:
 A reference-machine result may still be reported, but the prose must not imply
 that an unstable ordering is universal.
 
+### Changes since the previous round
+
+When a previous published round measured a component at another version, compare the two rounds
+for material performance changes between those versions.
+
+Compare a result only with the previous round's result for the same machine, component, metric,
+dataset shape, size and auto-scheduling mode. Read the previous figures from
+`reports/<previous version>/raw-results/`, not from the previous report's prose. Different
+machines are not a baseline for each other.
+
+The rounds are comparable only when their harness versions differ at most in the patch number and
+their `env.json` files record the same browser version. Otherwise, do not report changes.
+
+Report a change when:
+
+- it falls outside the practical-equivalence band;
+- every machine measured in both rounds shows the same direction; and
+- it is visible enough in the tables that omitting it could look selective.
+
+A completion change is also a finding: a test that a component now completes, or no longer
+completes, at a given size.
+
+Name both versions and give both values in readable units. The benchmark does not isolate the
+cause of a change; attribute it to a specific library change only when that library's release
+notes state it. Report improvements and regressions alike, for DHTMLX and for every other
+component.
+
+Place a change in the conclusion of the test that measured it. A change that spans several tests,
+or alters a previous round's conclusion, may also take a headline. When no material change is
+found, omit the comparison.
+
 ## Headlines
 
 Write four one-sentence bullets in priority order. Add a fifth or sixth only for a materially
@@ -292,6 +324,8 @@ Before saving:
 6b. Check that each test explains the meaningful pattern across participants. Naming competitors
     only to quantify the leader's advantage is insufficient when the tables support other useful
     findings.
+
+6c. Verify that each change since the previous round compares the same machine and conditions, falls outside the practical-equivalence band, and has the same direction on every machine measured in both rounds.
 
 7. Verify that no claim depends on a cross-machine ordering reversal.
 

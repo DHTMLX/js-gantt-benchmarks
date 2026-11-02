@@ -14,13 +14,13 @@ Round v1.0.0 compares five vanilla JavaScript Gantt components.
 
 <!-- BENCH:SUMMARY -->
 
-### Round v1.0.0
+### Round v1.0.1
 
 - 5 libraries, 2 dataset shapes and 6 metrics, with auto-scheduling disabled and enabled where the component supports it.
 - Complete matrix: 1,000, 5,000, 10,000, 50,000, and 100,000 tasks.
-- Reference machine MacBook Air M1 (`Apple-M1-mac`) — Apple M1, RAM 16 GB, darwin 24.6.0, Chromium 151.0.7922.34, 60 Hz display. Each figure is the median of the runs that produced one, out of 3 independent fresh-browser runs of every test; where a figure came from fewer, the count is printed beside it. Reference data updated `2026-09-15`.
+- Reference machine MacBook Air M1 (`Apple-M1-mac`) — Apple M1, RAM 16 GB, darwin 24.6.0, Chromium 151.0.7922.34, 60 Hz display. Each figure is the median of the runs that produced one, out of 3 independent fresh-browser runs of every test; where a figure came from fewer, the count is printed beside it. Reference data updated `2026-10-29`.
 
-[`Full report`](reports/1.0.0/report-v1.0.0.md) · [`Machine-readable results`](reports/1.0.0/summary.json) · [`Raw measurements`](reports/1.0.0/raw-results/)
+[`Full report`](reports/1.0.1/report-v1.0.1.md) · [`Machine-readable results`](reports/1.0.1/summary.json) · [`Raw measurements`](reports/1.0.1/raw-results/)
 
 <!-- /BENCH:SUMMARY -->
 
@@ -64,10 +64,10 @@ It shows one shape at three sizes for readability; the
 <!-- BENCH:LIBRARIES -->
 
 - [**DHTMLX Gantt** v10.0.3](https://dhtmlx.com/docs/products/dhtmlxGantt/)
-- [**Bryntum Gantt** v7.3.6](https://www.bryntum.com/products/gantt/)
-- [**DevExtreme Gantt** v26.1.4](https://js.devexpress.com/jQuery/Documentation/Guide/UI_Components/Gantt/Overview/)
-- [**Kendo UI Gantt** v2026.3.811](https://www.telerik.com/kendo-jquery-ui/gantt)
-- [**Syncfusion Gantt** v34.2.8](https://ej2.syncfusion.com/documentation/gantt/overview)
+- [**Bryntum Gantt** v7.3.8](https://www.bryntum.com/products/gantt/)
+- [**DevExtreme Gantt** v26.1.6](https://js.devexpress.com/jQuery/Documentation/Guide/UI_Components/Gantt/Overview/)
+- [**Kendo UI Gantt** v2026.3.1015](https://www.telerik.com/kendo-jquery-ui/gantt)
+- [**Syncfusion Gantt** v35.1.41](https://ej2.syncfusion.com/documentation/gantt/overview)
 
 <!-- /BENCH:LIBRARIES -->
 
