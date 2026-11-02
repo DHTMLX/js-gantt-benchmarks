@@ -71,9 +71,12 @@ It shows one shape at selected sizes; each test below covers both shapes at ever
 
 ## Headlines
 
-> **TODO** — write the Headlines following
-> [`BENCHMARK_REPORT_EDITOR.md`](../../bench/BENCHMARK_REPORT_EDITOR.md#headlines). Replace this
-> entire block.
+- **DHTMLX loads 100 000 project-tree tasks in about one second with auto-scheduling disabled** — the shortest time to ready among the 5 components in this round, against about 55 seconds for Bryntum and 1 minute 9 seconds for Syncfusion, while DevExtreme and Kendo UI do not finish loading at that size.
+- **DHTMLX is the only component here that produced a figure for every test, size, shape and scheduling mode on all three machines** — Kendo UI has no auto-scheduling at all and, like DevExtreme, never loaded 100 000 tasks in either shape.
+- **DHTMLX keeps auto-scheduled edits on a 100 000-task project tree to about a second** — a single move takes about one second and the bulk-edit stress test about 1.1 seconds, where Syncfusion needs about 9 seconds for the move and 3 minutes for the batch, and Bryntum does not complete the move.
+- **Syncfusion 35.1.41 loads and edits large datasets far faster than 34.2.8 did in the previous round** — with scheduling disabled it now loads the 100 000-task flat chain in about 17 seconds instead of 3 minutes 8 seconds and moves a task on the 100 000-task project tree in about 3.4 seconds instead of 4 minutes 9 seconds, on both machines measured in both rounds.
+- **DHTMLX, Bryntum and Syncfusion share the fastest scrolling group on the reference machine and `i9-11900K-win`, and this benchmark does not separate them there** — all three hold at or near the 60 Hz display limit through 100 000 tasks, while Kendo UI falls to about 6 FPS at 50 000 tasks and DevExtreme records no frames at all by 10 000; on the dual-core `i5-7200U-win` laptop only Syncfusion stays near the limit.
+- **DevExtreme retains less heap than DHTMLX at 50 000 tasks with auto-scheduling enabled on the reference machine** — 61 MB against 93 MB on the project tree, the only results in this round that leave DHTMLX outside the fastest group, although DevExtreme schedules on change rather than during loading and does not load that size on either Windows machine.
 
 ---
 
@@ -204,9 +207,15 @@ Measured in milliseconds — lower is better.
 
 #### What these results show
 
-> **TODO** — interpret the Time to ready (TTR) tables above following
-> [`BENCHMARK_REPORT_EDITOR.md`](../../bench/BENCHMARK_REPORT_EDITOR.md#per-test-conclusions). Replace this entire
-> block, keeping the heading.
+**DHTMLX has the shortest time to ready at every tested size in both shapes with scheduling disabled.** At 100 000 project-tree tasks it is ready in about one second, against about 55 seconds for Bryntum and 1 minute 9 seconds for Syncfusion — a gap between those two that falls inside the 25% band — while DevExtreme and Kendo UI do not finish loading at that size in either shape.
+
+**Loading delays become noticeable well before the largest dataset.** All five components load the 1 000-task project tree in under two thirds of a second with scheduling disabled, but at 10 000 tasks DHTMLX needs about a seventh of a second, Syncfusion about 2 seconds, Bryntum and Kendo UI about 4 seconds and DevExtreme about 12 seconds. At 50 000 Syncfusion and Bryntum take about 21 seconds, Kendo UI about 1 minute 25 seconds and DevExtreme about 4 minutes 10 seconds.
+
+**With scheduling enabled, DHTMLX loads either 100 000-task shape in under 2.5 seconds.** Syncfusion loads the flat chain in about 12 seconds and the project tree in about 1 minute 4 seconds; Bryntum loads the project tree in about 1 minute 7 seconds but exceeds the five-minute limit on the flat chain, DevExtreme exceeds it in both shapes, and Kendo UI has no auto-scheduling mode to measure.
+
+**Syncfusion 35.1.41 loads large datasets several times faster than 34.2.8 did in the previous round.** On the reference machine the 100 000-task flat chain is ready in about 17 seconds against 3 minutes 8 seconds with scheduling disabled, and the project tree in about 1 minute 9 seconds against 4 minutes 15 seconds. The Windows machine measured in both rounds shows the same direction in both modes, from 10 000 tasks up on the flat chain and from 50 000 up on the project tree.
+
+**Syncfusion still reaches ready sooner with auto-scheduling enabled than disabled, but on the reference machine only the 100 000-task flat chain now shows it outside the 25% band.** There it takes about 12 seconds with the mode on against 17 seconds with it off, and every run on all three machines points the same way; the project tree, where the previous round found the larger gap, now loads within the band in both modes. The benchmark does not isolate the cause, so this is a result for these datasets and this version, not evidence that auto-scheduling generally speeds loading.
 
 ### Test: Time to first paint (TTFP)
 
@@ -262,9 +271,13 @@ Measured in milliseconds — lower is better.
 
 #### What these results show
 
-> **TODO** — interpret the Time to first paint (TTFP) tables above following
-> [`BENCHMARK_REPORT_EDITOR.md`](../../bench/BENCHMARK_REPORT_EDITOR.md#per-test-conclusions). Replace this entire
-> block, keeping the heading.
+**DHTMLX paints first among the tested components at every size in both modes, and its two figures coincide.** At 100 000 project-tree tasks first paint and readiness are both about one second with scheduling disabled and about 2.4 seconds with it enabled, so its first frame arrives only once the chart is already usable.
+
+**Bryntum paints early and finishes much later.** Its 100 000-task project tree shows rows after about 5 seconds in either mode but is not ready for about 55 seconds with scheduling disabled and about 1 minute 7 seconds with it enabled; the early image is not completed loading, and the wait that follows it is the one a user feels.
+
+**DevExtreme also defers work past its first paint, while Kendo UI and Syncfusion do not.** At 50 000 project-tree tasks with scheduling disabled, DevExtreme paints in about 1 minute 58 seconds
+but is ready after about 4 minutes 10 seconds, whereas Kendo UI's two figures fall within a second of each other at about 1 minute 25 seconds and Syncfusion reports the same figure for both at about
+22 seconds. For those two the first image arrives only when loading has finished.
 
 ### Test: Memory usage
 
@@ -320,9 +333,14 @@ Measured in megabytes — lower is better.
 
 #### What these results show
 
-> **TODO** — interpret the Memory usage tables above following
-> [`BENCHMARK_REPORT_EDITOR.md`](../../bench/BENCHMARK_REPORT_EDITOR.md#per-test-conclusions). Replace this entire
-> block, keeping the heading.
+**DHTMLX retains the least heap at every tested size with scheduling disabled.** At 100 000 project-tree tasks it holds about 63 MB, against about 750 MB for Syncfusion and about 3.2 GB for Bryntum, while DevExtreme and Kendo UI do not load that size — a spread wide enough to decide whether a dataset fits in a browser tab at all.
+
+**The field's heap growth rates differ far more than the smallest datasets suggest.** Between 1 000 and 50 000 project-tree tasks with scheduling disabled, DHTMLX goes from 5 MB to 33 MB and
+DevExtreme from 13 MB to 61 MB, while Kendo UI goes from 27 MB to 191 MB, Syncfusion from 23 MB to 382 MB and Bryntum from 57 MB to about 1.6 GB.
+
+**DevExtreme retains less heap than DHTMLX at 50 000 tasks with scheduling enabled on the reference machine — the only results in this round that leave DHTMLX outside the fastest group.** It holds
+61 MB on the project tree and 62 MB on the flat chain against DHTMLX's 93 MB and 86 MB; neither Windows machine loads DevExtreme at 50 000 in this round, so the comparison rests on the Mac alone.
+Its heap with the mode on equals its heap with the mode off, which follows from its scheduling on change rather than during loading ([known asymmetry 5](../../CONFIGURATION.md#known-asymmetries)).
 
 ### Test: Scrolling FPS
 
@@ -378,9 +396,12 @@ Measured in frames per second — higher is better.
 
 #### What these results show
 
-> **TODO** — interpret the Scrolling FPS tables above following
-> [`BENCHMARK_REPORT_EDITOR.md`](../../bench/BENCHMARK_REPORT_EDITOR.md#per-test-conclusions). Replace this entire
-> block, keeping the heading.
+**DHTMLX, Bryntum and Syncfusion share the fastest group wherever they complete this test on the reference machine.** All three stay at or within two frames of the 60 Hz display limit in every
+shape and mode they produced a figure for, through 100 000 tasks, and `i9-11900K-win` shows the same; the display cannot show a difference between components that all keep pace with it.
+
+**Kendo UI and DevExtreme drop to frame rates a user would see.** Kendo UI falls from 60 FPS at 1 000 project-tree tasks to about 32 FPS at 10 000 and about 6 FPS at 50 000, and DevExtreme is already at about 25 FPS at 1 000 and records no frames at all during the measured scroll by 10 000 in either shape or mode. At those rates the scroll is not slow but effectively frozen.
+
+**On the dual-core `i5-7200U-win` laptop the shared group separates.** There Syncfusion holds 58 to 59 FPS at every size, while from 5 000 tasks up DHTMLX runs at about 36 to 49 FPS and Bryntum at about 14 to 23 FPS. The benchmark does not isolate which property of that machine produces the difference.
 
 ### Test: Moving a task
 
@@ -436,9 +457,17 @@ Measured in milliseconds — lower is better.
 
 #### What these results show
 
-> **TODO** — interpret the Moving a task tables above following
-> [`BENCHMARK_REPORT_EDITOR.md`](../../bench/BENCHMARK_REPORT_EDITOR.md#per-test-conclusions). Replace this entire
-> block, keeping the heading.
+**DHTMLX completes a single move in about a quarter of a second on the 100 000-task project tree with scheduling disabled.** Syncfusion takes about 3.4 seconds and Bryntum about 6.6 seconds at that size, while DevExtreme and Kendo UI never reach it.
+
+**The field separates as the dataset grows rather than at the smallest size.** With scheduling disabled every component moves a task in about half a second or less at 1 000 project-tree tasks, but at 10 000 DHTMLX stays under a tenth of a second and Syncfusion and Bryntum at about 0.4 seconds, while DevExtreme takes about 6.4 seconds and Kendo UI about 29 seconds.
+
+**With scheduling enabled, DHTMLX moves a task on the 100 000-task project tree in about one second and on the flat chain in about 1.9 seconds.** Syncfusion takes about 9 seconds on the tree and stops
+at 5 000 on the chain. Bryntum never reaches the 100 000-task chain, and on the tree its move fails in every run — the tab crashes on the reference machine and the move exceeds the five-minute limit on both Windows machines — where Bryntum 7.3.6 completed it in about 50 seconds in the previous round.
+
+**The scheduled flat chain is where this test ends runs early.** A move there reschedules every task after it by construction, and at 5 000 tasks both DevExtreme and Syncfusion raise `Maximum call stack size exceeded` in every run on the reference machine, with DevExtreme already needing about 16 seconds at 1 000. The benchmark records the step, the size and the message, and does not isolate why either component reaches that state.
+
+**Syncfusion 35.1.41 and Bryntum 7.3.8 move tasks much faster than the versions in the previous round, and DevExtreme 26.1.6 is slower on scheduled moves.** With scheduling disabled on the 100 000-task project tree, Syncfusion takes about 3.4 seconds against 4 minutes 9 seconds for 34.2.8 — and about 9 seconds against 4 minutes 11 seconds with scheduling enabled — while Bryntum needs between a quarter and a half less time than 7.3.6 from 5 000 tasks up, about 6.6 seconds against 12 seconds at 100 000. DevExtreme takes roughly twice as long as 26.1.4 on every scheduled move it
+completes, such as about 16 seconds against 7 seconds on the 1000-task flat chain; each of these changes appears on both machines measured in both rounds.
 
 ### Test: Bulk edit
 
@@ -498,9 +527,14 @@ In practice an application using one of those three would replace the dataset ou
 
 #### What these results show
 
-> **TODO** — interpret the Bulk edit tables above following
-> [`BENCHMARK_REPORT_EDITOR.md`](../../bench/BENCHMARK_REPORT_EDITOR.md#per-test-conclusions). Replace this entire
-> block, keeping the heading.
+**DHTMLX applies the whole batch in under half a second at every tested size with scheduling disabled.** At 100 000 project-tree tasks that is about four tenths of a second, against about 10.5 seconds for Bryntum and 2 minutes 38 seconds for Syncfusion. DHTMLX and Bryntum suspend rendering across the batch and the other three repaint per change, which is part of what this stress test measures.
+
+**This stress test separates the field at 1 000 tasks, where loading does not.** On the project tree with scheduling disabled, DHTMLX and Bryntum finish in under a quarter of a second and Syncfusion in about 3 seconds, while DevExtreme takes about 49 seconds and Kendo UI about 4 minutes — and on the flat chain Kendo UI exceeds the five-minute limit outright. A dataset that loads in a fraction of a second can therefore still block the page for minutes on a batch of 300 changes.
+
+**With scheduling enabled, DHTMLX completes the 100 000-task batch in about 1.1 seconds on the project tree and 1.3 seconds on the flat chain.** At 50 000 project-tree tasks Bryntum takes about
+12 seconds and Syncfusion about 1 minute 21 seconds, against about half a second for DHTMLX. At 100 000 Syncfusion completes the project-tree batch in about 3 minutes, and Bryntum never reaches it because its move fails first.
+
+**Two components' scheduled batches changed since the previous round.** Syncfusion 35.1.41 completes the 100 000-task project-tree batch on the reference machine, where 34.2.8 never settled, and on the Windows machine measured in both rounds it falls from about 4 minutes 16 seconds to 2 minutes 39 seconds. DevExtreme 26.1.6 records no figure for the 1 000-task project-tree batch on either of those machines, where 26.1.4 recorded about 1 minute 31 seconds; both versions note the same `Maximum call stack size exceeded` message there.
 
 <!-- BENCH:RESULT-NOTES -->
 
@@ -538,15 +572,18 @@ These runs produced at least one valid figure before a later step raised an erro
 
 ## Observed large-dataset limits
 
-> **TODO** — write the round's scale limits following
-> [`BENCHMARK_REPORT_EDITOR.md`](../../bench/BENCHMARK_REPORT_EDITOR.md#observed-large-dataset-limits).
-> Replace this entire block.
+**DHTMLX is the only tested component that produced a figure for every metric, size, shape and scheduling mode, on all three machines.** Bryntum and Syncfusion also complete the whole sequence
+through 100 000 tasks in both shapes with scheduling disabled on the reference machine, though their largest edits take seconds to minutes rather than fractions of a second.
+
+**With scheduling enabled, completion depends on the workload and not on size alone.** Bryntum loads the 100 000-task project tree but its move there fails in every run, and its flat-chain load exceeds the five-minute limit; Syncfusion completes every step on the project tree through 100 000 tasks on the reference machine, but its flat-chain move fails at 5 000, which leaves the steps after it unmeasured at that size and above.
+
+**DevExtreme and Kendo UI reach their editing limits well before their loading limits.** DevExtreme's bulk edit exceeds the five-minute limit at 5 000 tasks with scheduling disabled and fails at 1 000 in both shapes with it enabled, and its scheduled flat-chain move fails at 5 000; Kendo UI, which has no auto-scheduling mode, exceeds the limit on the 1 000-task flat-chain batch, the 5 000-task project-tree batch and the 50 000-task move. Neither component finishes loading 100 000 tasks in either shape.
+
+**The benchmark records how these runs ended, not why.** Two components raise `Maximum call stack size exceeded` on scheduled edits, and Bryntum crashes its tab on the largest scheduled move on the reference machine; the harness observes the step, the marker and the message, and nothing that would identify the cause inside the component.
 
 ## Cross-machine validation
 
-> **TODO** — write the agreement paragraph following
-> [`BENCHMARK_REPORT_EDITOR.md`](../../bench/BENCHMARK_REPORT_EDITOR.md#cross-machine-validation),
-> or remove this section when one machine measured the round.
+**The two Windows machines, `i9-11900K-win` and `i5-7200U-win`, support the conclusions above.** No pair of machines reverses an ordering the other calls meaningful, and the fastest groups overlap in every test except heap at 50 000 tasks with scheduling enabled, where DevExtreme leads only on the Mac because it does not load that size on Windows in this round. The dual-core `i5-7200U-win` laptop is several times slower in absolute terms, reaches the five-minute limit earlier for DevExtreme, Kendo UI and Syncfusion, and is the one machine where scrolling separates DHTMLX, Bryntum and Syncfusion.
 
 ## Known limitations
 
@@ -568,9 +605,10 @@ Full details are in
 - **One browser**, Chromium. These timings are not comparable with benchmarks that stop the
   clock when the API call returns rather than waiting for the UI to become quiescent.
 
-> **TODO** — add any round-specific limitations following
-> [`BENCHMARK_REPORT_EDITOR.md`](../../bench/BENCHMARK_REPORT_EDITOR.md#known-limitations). Replace
-> this entire block, or remove it when no additional limitation applies.
+- **Some completion limits depend on the machine.** DevExtreme loads 50 000 tasks only on the Mac, which is where its heap comparison at that size comes from; Kendo UI's 1 000-task project-tree batch completes only on the Mac; and Syncfusion's 100 000-task batch does not settle on `i5-7200U-win`.
+- **The shared scrolling group holds only on the two faster machines.** On `i5-7200U-win` DHTMLX and Bryntum fall below the display limit while Syncfusion does not.
+- **Syncfusion's configuration changed between rounds.** Harness 1.0.1 removes `validateManualTasksOnLinking`; an A/B check at 1 000 tasks in both modes and shapes produced identical schedules and validation work with and without it, so the removal does not account for the Syncfusion changes reported above.
+- **Changes since the previous round are observed, not explained.** They compare the same machines, operating systems and Chromium build across library versions; the benchmark does not isolate which change inside a library produces them.
 
 ## Reproducing this
 
