@@ -9,8 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@syncfusion/ej2": "^34.2.8",
-    "@syncfusion/ej2-gantt": "^34.2.8"
+    "@syncfusion/ej2": "35.1.42",
+    "@syncfusion/ej2-gantt": "35.1.41"
   },
   "devDependencies": {
     "vite": "8.1.5"

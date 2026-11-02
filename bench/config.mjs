@@ -7,7 +7,7 @@ import { BULK_EDIT_OPS, SHAPE_IDS } from "../shared/dataset.js";
 import { loadLibraries, loadRoundLibraries } from "./libraries.mjs";
 
 // Published round identifier used in artifact paths and metadata.
-export const ROUND_VERSION = "1.0.0";
+export const ROUND_VERSION = "1.0.1";
 
 // Harness version is distinct from the published round identifier.
 export const HARNESS_VERSION = JSON.parse(
